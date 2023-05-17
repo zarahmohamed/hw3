@@ -8,4 +8,8 @@ class PlacesController < ApplicationController
     @place = Place.find_by({ "id" => params["id"] })
   end
 
+  def new
+    @place = Place.new
+  end
+
 end
