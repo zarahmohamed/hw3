@@ -1,15 +1,18 @@
-<%# Define the places at the top of the file %>
-  <% places = ["Australia", "Iceland", "Brazil"] %>
-	
-<%# Make the list of places %>
-  <h1>Places I've been</h1>
-	<ul>
-		<% for place in places %>
-		<li><%= place%></li>
-		<% end %>
-  </ul>
+<h1>Places I've been</h1>
+<ul>
+	<% for place in @places %>
+	  <li><a href="/places/<%= place["id"] %>"><%= place%>
+    </li>
+	<% end %>
+</ul>
 
 <%# Add a link to create a new place %>
   <p>
   <a href="/places">New Place</a>
   </p>
+
+<%# Add the form %>
+  <form action="/places" method="POST">
+    <input type="text" name="newplace" placeholder="Add a new place">
+    <button> Add </button>
+  </form>
