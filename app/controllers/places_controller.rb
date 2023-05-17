@@ -4,5 +4,8 @@ class PlacesController < ApplicationController
     @places = ["Australia", "Iceland", "Brazil"]
   end
 
+  def show
+    @place = Place.find_by({ "id" => params["id"] })
+  end
 
 end
