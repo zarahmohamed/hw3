@@ -1,7 +1,13 @@
-<%= form_with :model => @company do |form| %>
+<h1>New Place</h1>
+
+<%= form_with :model => @place do |form| %>
   <p>
-    <%= form.label "name", "Place Name" %>
+    <%= form.label "my latest trip" %>
     <%= form.text_field "name" %>
   </p>
-  <%= form.submit %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
 <% end %>
