@@ -4,10 +4,6 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
 
-  def show
-    @place = Place.find_by({ "id" => params["id"] })
-  end
-
   def new
     @place = Place.new
   end
@@ -16,7 +12,16 @@ class PlacesController < ApplicationController
     @place = Place.new
     @place["name"] = params["place"]["name"]
     @place.save
-    redirect_to "/places"
+    redirect_to "/"
+  end
+
+  def show
+    @place = Place.find_by("id" => params["id"])
+    @post = Post.where("place_id" => @place["id"])
+  end
+
+  def destroy
+    @place = Place.find_by({ "id" => params["id"] })
   end
 
 end
